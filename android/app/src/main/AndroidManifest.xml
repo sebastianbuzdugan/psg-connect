@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.psgfanboy">
    <application
-        android:label="psgfanboy"
+        android:label="PSG Connect"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

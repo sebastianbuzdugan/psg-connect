@@ -1,31 +1,34 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:psgfanboy/providers/theme_provider.dart';
-import 'package:psgfanboy/screens/homepage.dart';
-import 'consts/theme.dart';
+import 'package:psgfanboy/screens/introscreen.dart';
 
+import 'consts/theme.dart';
 void main() {
   runApp(
-    const ProviderScope(
+    ProviderScope(
       child: MyApp(),
     ),
   );
 }
 
-class MyApp extends ConsumerWidget {
-  const MyApp({super.key});
 
-  // This widget is the root of your application.
+ 
+
+class MyApp extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final themeMode = ref.watch(themeNotifierProvider.notifier).mode;
+    final theme = ref.watch(themeNotifierProvider);
     return MaterialApp(
-      title: 'p1 Flutter AI',
+      title: 'PSG Connect',
       theme: FlutterTheme.lightModeAppTheme,
       darkTheme: FlutterTheme.darkModeAppTheme,
-      themeMode: themeMode,
+      themeMode: theme == FlutterTheme.darkModeAppTheme ? ThemeMode.dark : ThemeMode.light,
       debugShowCheckedModeBanner: false,
-      home: HomePage(),
+      home: IntroScreen(),
+      
     );
   }
 }
+
